@@ -63,7 +63,7 @@ public class AccountBusinessServiceImpl implements AccountBusinessService {
 	}
 
 	@Override
-	public List<Transaction> getTransactionHistory(String accountNumber) throws BusinessException {
+	public List<TransactionDetails> getTransactionHistory(String accountNumber) throws BusinessException {
 		LOGGER.info("START :: AccountBusinessServiceImpl:getTransactionHistory");
 
 		List<TransactionDetails> transactionhistory = new ArrayList<TransactionDetails>();
