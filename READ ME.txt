@@ -1,0 +1,26 @@
+Account Summary Project details:
+
+Used H2 in-memory database for data sorce.
+Used SpringData framework and Entity manager to fetch the data.
+Used Mockito for mocking the data base call during junit testing.
+Mocked the controller using TestRestTemplate.
+Integrated the app with SpringSecurity using in-memory authentication.
+
+
+Rest URL :
+Account list:
+http://localhost:8080/accounts
+Transaction History
+localhost:8080/transactionhistory/1234567891
+localhost:8080/transactionhistory/1234567892
+
+Note:
+The Rest Api will return the object due to below reason 
+1.The Wrapper object has list data and status ,so that it will be easy for the front end developer to handle the error scenario.
+2.In the future ,if we need to add any other field ,we can add that in the object,without affecting the client code,who is not intrested in the new fields.
+
+Spring security details
+username : parthi
+passwrd : password
+
+
