@@ -2,9 +2,13 @@ package com.anz.accounts.controller;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +21,7 @@ import com.anz.accounts.model.TransactionDetails;
 import com.anz.accounts.services.business.AccountBusinessService;
 
 @RestController
+@Validated
 public class AccountController {
 
 	private static final Logger LOGGER = LogManager.getLogger(AccountController.class);
@@ -49,7 +54,7 @@ public class AccountController {
 
 	@GetMapping("/transactionhistory/{accountId}")
 	public AccountTransationResponse getTransacionHistory(
-			@PathVariable(name = "accountId", required = true) String accountId) {
+			@PathVariable(name = "accountId", required = true) @NotBlank @Size(min=10, max=10) String accountId) {
 
 		LOGGER.info("START :: AccountSummaryController:getTransacionHistory");
 
@@ -65,7 +70,7 @@ public class AccountController {
 			accountTransactionResponse.setStatus("ERROR");
 		}
 
-		LOGGER.info("START :: AccountSummaryController:getTransacionHistory");
+		LOGGER.info("END :: AccountSummaryController:getTransacionHistory");
 
 		return accountTransactionResponse;
 
